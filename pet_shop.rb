@@ -69,12 +69,18 @@ def add_pet_to_stock(pet_shop, new_pet)
     pet_shop[:pets].push(new_pet)
     end
 
-# def test_customer_pet_count
-#       count = customer_pet_count(@customers[0])
-#       assert_equal(0, count)
-# end
-#this i checking how many pets the customers have
 
 def customer_pet_count(customer)
   return customer[:pets].length()
+end
+
+# def test_add_pet_to_customer
+#   customer = @customers[0]
+#   add_pet_to_customer(customer, @new_pet)
+#   assert_equal(1, customer_pet_count(customer))
+# end
+# this checks the cusotmers pets then adds a pet to the customer the function takes in customer hash and the new pet hash
+
+def add_pet_to_customer(customer, new_pet)
+  customer[:pets].push(new_pet)  
 end
