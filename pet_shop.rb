@@ -63,3 +63,18 @@ def remove_pet_by_name(pet_shop, find_pet_by_name)
   pet_shop[:pets].pop
   end
 end
+
+
+def add_pet_to_stock(pet_shop, new_pet)
+    pet_shop[:pets].push(new_pet)
+    end
+
+# def test_customer_pet_count
+#       count = customer_pet_count(@customers[0])
+#       assert_equal(0, count)
+# end
+#this i checking how many pets the customers have
+
+def customer_pet_count(customer)
+  return customer[:pets].length()
+end
