@@ -74,13 +74,23 @@ def customer_pet_count(customer)
   return customer[:pets].length()
 end
 
-# def test_add_pet_to_customer
-#   customer = @customers[0]
-#   add_pet_to_customer(customer, @new_pet)
-#   assert_equal(1, customer_pet_count(customer))
-# end
-# this checks the cusotmers pets then adds a pet to the customer the function takes in customer hash and the new pet hash
-
 def add_pet_to_customer(customer, new_pet)
-  customer[:pets].push(new_pet)  
+  customer[:pets].push(new_pet)
+end
+
+# def test_customer_can_afford_pet__insufficient_funds
+#   customer = @customers[1]
+#   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+#   assert_equal(false, can_buy_pet)
+# end
+#this is testing if the customer can afford to purchase a pet and
+# returnig false if the cusotmer funds is below the lowest value of the cost of a pet
+#it is testing if Alistair can buy a pet his funds are 50 and the pet costs 100
+
+def customer_can_afford_pet(customer, new_pet)
+    for funds in cusotmer[:cash]
+      if funds >= new_pet[:price]
+        return true
+      end
+    end       
 end
