@@ -78,19 +78,40 @@ def add_pet_to_customer(customer, new_pet)
   customer[:pets].push(new_pet)
 end
 
-# def test_customer_can_afford_pet__insufficient_funds
-#   customer = @customers[1]
-#   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
-#   assert_equal(false, can_buy_pet)
-# end
-#this is testing if the customer can afford to purchase a pet and
-# returnig false if the cusotmer funds is below the lowest value of the cost of a pet
-#it is testing if Alistair can buy a pet his funds are 50 and the pet costs 100
-
-def customer_can_afford_pet(customers, new_pet)
-  for money in customers
-    if money != new_pet[:price]
+def customer_can_afford_pet(customer, new_pet)
+customer_spending_money = customer[:cash]
+    if customer_spending_money <= new_pet[:price]
       return false
     end
-  end
+    return true
 end
+
+# def customer_can_afford_pet(customers, new_pet)
+#   for money in customers
+#     if money != new_p
+#       return false
+#     end
+#   end
+# end
+#
+
+#
+# def test_customer_can_afford_pet__sufficient_funds
+#   customer = @customers[0]
+#   can_buy_pet = customer_can_afford_pet(customer, @new_pet)
+#   assert_equal(true, can_buy_pet)
+# end
+#
+#
+# #These are 'integration' tests so we want multiple asserts.
+# #If one fails the entire test should fail
+# def test_sell_pet_to_customer__pet_found
+#   customer = @customers[0]
+#   pet = find_pet_by_name(@pet_shop,"Arthur")
+#
+#   sell_pet_to_customer(@pet_shop, pet, customer)
+#
+#   assert_equal(1, customer_pet_count(customer))
+#   assert_equal(1, pets_sold(@pet_shop))
+#   assert_equal(1900, total_cash(@pet_shop))
+# end
