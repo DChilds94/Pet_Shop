@@ -71,7 +71,7 @@ def add_pet_to_stock(pet_shop, new_pet)
 
 
 def customer_pet_count(customer)
-  return customer[:pets].length()
+  return customer[:pets].count()
 end
 
 def add_pet_to_customer(customer, new_pet)
@@ -87,10 +87,10 @@ end
 # returnig false if the cusotmer funds is below the lowest value of the cost of a pet
 #it is testing if Alistair can buy a pet his funds are 50 and the pet costs 100
 
-def customer_can_afford_pet(customer, new_pet)
-    for funds in cusotmer[:cash]
-      if funds >= new_pet[:price]
-        return true
-      end
-    end       
+def customer_can_afford_pet(customers, new_pet)
+  for money in customers
+    if money != new_pet[:price]
+      return false
+    end
+  end
 end
